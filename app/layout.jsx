@@ -1,33 +1,28 @@
+import "@styles/globals.css";
 
-import '@styles/globals.css'
-
-import Nav from '@components/Nav'
-import {SessionProvider} from 'next-auth/react'
-
+import Nav from "@components/Nav";
+import Provider from "@components/Provider";
 
 export const metadata = {
-    title: "Promptpedia",
-    description: 'Discover & share AI Prompts'
-}
-const RootLayout = ({ children }) => {
-    return (
-        <SessionProvider>
-        <html lang="en">
-            <body>
-                <div className="main">
-                    <div className="gradient">
+  title: "Promptpedia",
+  description: "Discover & Share AI Prompts",
+};
 
-                    </div>
-                </div>
-                <main className="app">
-                    <Nav />
+const RootLayout = ({ children }) => (
+  <html lang='en'>
+    <body>
+      <Provider>
+        <div className='main'>
+          <div className='gradient' />
+        </div>
 
-                    {children}
-                </main>
-            </body>
-        </html>
-        </SessionProvider>
-    )
-}
+        <main className='app'>
+          <Nav />
+          {children}
+        </main>
+      </Provider>
+    </body>
+  </html>
+);
 
-export default RootLayout
+export default RootLayout;
